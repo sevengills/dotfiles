@@ -8,7 +8,7 @@ FILTER="$garden/obsidian-filter.txt"
 
 rclone bisync \
     $garden/lyt \
-    vault: \
+   vault: \
     --filter-from $garden/obsidian-filter.txt \
     --create-empty-src-dirs \
     --resilient \

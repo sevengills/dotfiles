@@ -1,0 +1,6 @@
+- lyt/.obsidian/workspace.json
+- lyt/.obsidian/workspace-mobile.json
+- lyt/.obsidian/cache/**
+- lyt/.obsidian/backlink-cache/**
+- lyt/.trash/**
++ lyt/**
