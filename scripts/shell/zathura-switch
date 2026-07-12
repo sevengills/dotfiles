@@ -1,0 +1,13 @@
+#!/bin/bash
+
+CONFIG_DIR="$HOME/.config/zathura"
+TARGET="$CONFIG_DIR/zathurarc"
+
+theme=$(ls "$CONFIG_DIR"/zathura-* | xargs -n1 basename | fzf --prompt="Choose Zathura theme: ")
+
+if [[ -n "$theme" ]]; then
+  cp "$CONFIG_DIR/$theme" "$TARGET"
+  echo "Switched to theme: $theme"
+  # pkill -x zathura 2>/dev/null
+  xdotool search --class zathura windowkill
+fi

@@ -1,0 +1,148 @@
+{
+	"keyboard.dispatch": "keyCode",
+	"editor.quickSuggestions": {
+    "other": false,
+    "comments": false,
+    "strings": false
+  },
+	"explorer.confirmDelete": false,
+	"php.validate.run": "onType",
+	"editor.tabSize": 2,
+	"explorer.autoReveal": false,
+	"files.associations": {},
+	// "editor.fontSize": 11,
+	// "editor.fontFamily": "Victor Mono",
+	// "editor.fontFamily": "M+CodeLat60 Nerd Font Mono",
+	"editor.fontFamily": "BlexMono Nerd Font Mono",
+	// "editor.fontFamily": "Ubuntu Mono",
+	"editor.fontLigatures": true,
+	"editor.tabCompletion": "on",
+	"editor.lineNumbers":"on" ,
+	"editor.guides.indentation": true,
+	"editor.lineDecorationsWidth":2 ,
+	"editor.glyphMargin": false,
+	"editor.autoIndent": "keep",
+	"editor.detectIndentation": false,
+	"liveServer.settings.useWebExt": true, // Mainly for static files
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact",
+	},
+	"workbench.colorCustomizations": {
+		// "editor.background": "#000",
+		// "sideBar.foreground": "#fff",
+		// "editorGutter.background": "#000",
+		"editorIndentGuide.background1":"#232020",
+		"editorIndentGuide.activeBackground1": "#17313e",
+    },
+
+	"workbench.startupEditor": "none",
+	"explorer.confirmDragAndDrop": false,
+	"editor.insertSpaces": true,
+	"liveServer.settings.AdvanceCustomBrowserCmdLine": "",
+	"liveServer.settings.ChromeDebuggingAttachment": false,
+	"intelephense.diagnostics.undefinedFunctions": false,
+	"material-icon-theme.folders.theme": "specific",
+	"liveServer.settings.donotShowInfoMsg": true,
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"editor.renderWhitespace": "none",
+	"editor.renderControlCharacters": true,
+	"security.workspace.trust.untrustedFiles": "newWindow",
+	"workbench.iconTheme": "vscode-icons",
+	"extensions.autoUpdate": "on",
+	"window.titleBarStyle": "custom",
+	"zenMode.fullScreen": false,
+	"zenMode.silentNotifications": false,
+	"window.titleSeparator": " : ",
+	"editor.accessibilityPageSize": 8,
+	"workbench.list.multiSelectModifier": "alt",
+	"terminal.integrated.defaultProfile.osx": "",
+	// "terminal.integrated.fontSize": "17px",
+  "terminal.integrated.fontFamily": "mono",
+	"editor.suggestSelection": "first",
+	"vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+	"files.exclude": {
+		"**/.classpath": true,
+		"**/.project": true,
+		"**/.settings": true,
+		"**/.factorypath": true
+	},
+	"liveServer.settings.donotVerifyTags": true,
+	"vsicons.dontShowNewVersionMessage": true,
+	"editor.bracketPairColorization.enabled": true,
+	"atlascode.bitbucket.enabled": true,
+	"redhat.telemetry.enabled": false,
+	"gitlens.menus": false,
+	"editor.accessibilitySupport": "off",
+	"editor.autoClosingOvertype": "always",
+	"window.newWindowProfile": "Default",
+	// "github.copilot.enable": {
+	// 	"*": true,
+	// 	"plaintext": false,
+	// 	"markdown": false,
+	// 	"scminput": false,
+	// 	"python": false
+	// },
+	"notebook.outline.showCodeCellSymbols": false,
+	"notebook.outline.showMarkdownHeadersOnly": false,
+	"NugetGallery.credentialProviderFolder": "{user-profile}/.nuget/plugins/netcore/CredentialProvider.Microsoft",
+	"NugetGallery.skipRestore": true,
+	"NugetGallery.sources": [
+		"{\"name\":\"nuget.org\",\"url\":\"https://api.nuget.org/v3/index.json\"}"
+	],
+	"highlighter.enable": true,
+	"center-editor-window.offset": 30,
+	"center-editor-window.threeStateToggle": true,
+	"workbench.editor.centeredLayoutAutoResize": false,
+	"workbench.editor.alwaysShowEditorActions": true,
+	"workbench.editor.tabSizingFixedMaxWidth": 50,
+	"workbench.secondarySideBar.defaultVisibility": "hidden",
+	"snyk.advanced.cliPath": "/home/raj/home/raj/.local/share/snyk/vscode-cli/snyk-linux",
+	"workbench.editor.enablePreview": false,
+	"snyk.yesWelcomeNotification": false,
+	"snyk.trustedFolders": [
+		"/home/raj/code/py"
+	],
+	"window.customTitleBarVisibility": "windowed",
+	"git.openRepositoryInParentFolders": "never",
+	"claudeCode.preferredLocation": "panel",
+	"claudeCode.disableLoginPrompt": true,
+	"claudeCode.environmentVariables": [
+	
+		{
+      "name": "ANTHROPIC_BASE_URL",
+      "value": "http://localhost:8082"
+    },
+    {
+      "name": "ANTHROPIC_AUTH_TOKEN",
+      "value": "freecc"
+    },
+		{ "name": "CLAUDE_CODE_ENABLE_GATEWAY_MODEL_DISCOVERY", "value": "1" },
+		{ "name": "CLAUDE_CODE_AUTO_COMPACT_WINDOW", "value": "190000" }
+	],
+	"workbench.panel.defaultLocation": "right",
+	"workbench.panel.showLabels": false,
+	"update.showReleaseNotes": false,
+	"telemetry.telemetryLevel": "off",
+	"telemetry.feedback.enabled": false,
+	"telemetry.editStats.details.enabled": true,
+	"rest-client.enableTelemetry": false,
+	"workbench.browser.showInTitleBar": false,
+	"workbench.layoutControl.enabled": false,
+	"zenMode.centerLayout": false,
+	"zenMode.hideStatusBar": false,
+  "terminal.integrated.tabs.enabled": false,
+	"breadcrumbs.enabled": false,
+	"github.copilot.enable": {
+		"*": false,
+		"plaintext": false,
+		"markdown": false,
+		"scminput": false
+	},
+  "markdown.extension.toc.updateOnSave": false,
+  "notebook.lineNumbers": "on"
+}

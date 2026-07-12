@@ -1,0 +1,14 @@
+.TridactylStatusIndicator {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+
+    background: rgba(0, 0, 0, 0.75) !important;
+    color: #ffffff !important;
+
+    padding: 6px 10px !important;
+    font-family: monospace !important;
+    font-size: 12px !important;
+    letter-spacing: 0.5px !important;
+}
+

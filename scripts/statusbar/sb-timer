@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+FILE="/tmp/timericon"
+SIG=3
+ICON="⏱"
+
+# ─────────────────────────────
+# PRINT MODE (called by dwmblocks)
+# ─────────────────────────────
+if [ -z "$BLOCK_BUTTON" ] && [ $# -eq 0 ]; then
+  if [ -s "$FILE" ]; then
+    cat "$FILE"
+  else
+    printf " %s " "$ICON"
+  fi
+  exit 0
+fi
+
+cleanup() {
+  echo "" >"$FILE"
+  pkill -RTMIN+$SIG dwmblocks
+  exit 0
+}
+
+timer() {
+  trap cleanup SIGHUP SIGINT SIGQUIT SIGABRT SIGTERM
+
+  while [ "$TOTAL_SECONDS" -gt 0 ]; do
+    MIN=$(printf "%02d" $((TOTAL_SECONDS / 60)))
+    SEC=$(printf "%02d" $((TOTAL_SECONDS % 60)))
+    echo "  $MIN $SEC " >"$FILE"
+    pkill -RTMIN+$SIG dwmblocks
+    sleep 1
+    TOTAL_SECONDS=$((TOTAL_SECONDS - 1))
+  done
+
+  notify-send "Timer ended, take a break"
+  cleanup
+}
+
+menu() {
+  MINUTES="$(echo "" | dmenu -c -p "Minutes: " <&-)"
+  [ -z "$MINUTES" ] && exit 0
+  TOTAL_SECONDS=$((MINUTES * 60))
+  timer
+}
+
+# ─────────────────────────────
+# INTERACTION MODE
+# ─────────────────────────────
+
+case "$BLOCK_BUTTON" in
+1) menu ;;    # left click → start timer
+3) cleanup ;; # right click → stop timer
+esac
+
+# Manual execution (keybind / terminal)
+menu

@@ -1,0 +1,15 @@
+name: dotfile
+root: /home/raj/dotfiles
+# tmux_command: /home/moviemaker/bin/tmux-startup-safe
+startup_window: rg
+startup_pane: 2
+windows:
+  - editor:
+      layout: tiled
+      panes:
+        - rg .config
+        - git status
+  - rg:
+      panes:
+        - rg ~/.config
+      

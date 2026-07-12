@@ -1,0 +1,64 @@
+
+#!/usr/bin/env bash
+# No API key → no output
+[[ -z "$OPENWEATHER_VAR" ]] && exit 0
+
+CACHE="/tmp/aqi_cache_$(date +%F)"
+TMP="${CACHE}.tmp"
+
+OPENWEATHER_VAR="${OPENWEATHER_VAR}"
+API_KEY=$(grep -oP 'key=\K[^&]+' <<< "$OPENWEATHER_VAR")
+LAT=$(grep -oP 'lat=\K[^&]+' <<< "$OPENWEATHER_VAR")
+LON=$(grep -oP 'lon=\K[^&]+' <<< "$OPENWEATHER_VAR")
+# 19°17'21.65"N 73°03'26.59"E
+# 19.2915069
+# 73.70305
+API_KEY="${API_KEY}"
+
+URL="http://api.openweathermap.org/data/2.5/air_pollution?lat=$LAT&lon=$LON&appid=$API_KEY"
+
+# Fetch once per day (safe cache)
+if [ ! -s "$CACHE" ] || [ "$(wc -w < "$CACHE")" -ne 3 ]; then
+  curl -s "$URL" |
+  jq -r '
+    .list[0] |
+    "\(.components.pm2_5) \(.components.pm10) \(.main.aqi)"
+  ' > "$TMP" && mv "$TMP" "$CACHE"
+fi
+
+read PM25 PM10 AQI < "$CACHE"
+
+# Severity icon (PM-based, stable)
+if awk -v pm25="$PM25" -v pm10="$PM10" 'BEGIN { exit !(pm25>=35 || pm10>=50) }'
+then
+  ICON="😷"
+  LEVEL="High"
+else
+  ICON="󰵃"
+  LEVEL="General"
+fi
+
+# Map OpenWeather AQI → label (for notification only)
+case "$AQI" in
+  1) AQI_LABEL="Good" ;;
+  2) AQI_LABEL="Fair" ;;
+  3) AQI_LABEL="Moderate" ;;
+  4) AQI_LABEL="Poor" ;;
+  5) AQI_LABEL="Very Poor" ;;
+  *) AQI_LABEL="Unknown" ;;
+esac
+
+# Left click → detailed notification
+case "$BLOCK_BUTTON" in
+  1) notify-send -u low -t 8000 "Air Quality ($LEVEL)" \
+      "AQI: $AQI_LABEL
+PM2.5: $PM25 µg/m³
+PM10:  $PM10 µg/m³"
+    ;;
+esac
+
+# https://api.met.no/weatherapi/airqualityforecast/0.1/?lat=60&lon=10&areaclass=grunnkrets&reftime=2026-01-18T00:00:00Z&filter_vars=pm25_concentration|pm10_concentration
+# http://api.openweathermap.org/data/2.5/air_pollution?lat=19&lon=73&appid=
+# Status bar output (PM2.5 only)
+
+echo "$ICON $PM25"

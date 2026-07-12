@@ -1,0 +1,76 @@
+#!/usr/bin/zsh
+
+FLAG_RECVD=true
+tmux start-server;
+
+cd /home/raj
+SESSION_NAME="gen"
+# WINDOW_NAME="main"
+FLAG_RECVD=false
+
+create_session() {
+    tmux has-session -t "$SESSION_NAME" 2>/dev/null
+    if [ $? != 0 ]; then
+		TMUX= tmux new-session -d -s $SESSION_NAME -n lx -c cd\ dotfiles
+
+        # Create other windows.
+        tmux new-window -c /home/raj -t gen:2 -n libri  
+        tmux new-window -c "/home/raj && soure gen/bin/activate" -t gen:3 -n py "jupyter\ lab\ --no-browser" 
+        
+        # Window "jupyter"
+        
+        tmux send-keys -t gen:1 cdwm
+        tmux splitw -t gen:2
+        tmux select-layout -t gen:2 tiled
+        tmux send-keys -t gen:2.1 rg\ phone\/kindlary Enter
+        tmux send-keys -t gen:2.2 "zathura "
+        # tmux new-session -d -s "$SESSION_NAME" -n "$WINDOW_NAME"
+        # echo "Tmux session '$SESSION_NAME' created with window '$WINDOW_NAME'."
+        echo "Tmux session '$SESSION_NAME'"
+    else
+        echo "Session '$SESSION_NAME' already exists. Reusing it."
+    fi
+}
+
+
+# Usage function
+usage() {
+    echo "Usage: $0 [-p] [-h]"
+    echo "  -p launch with jupyter labs"
+    echo "  -h help"
+    exit 1
+}
+
+# Parse command-line flags using getopts
+while getopts ":ph" opt; do
+
+  FLAG_RECVD=true
+
+  case $opt in
+    p )
+      create_session
+      tmux send-keys -t gen:3 Enter
+      ;;
+  
+    h )
+      usage
+      ;;
+    \? )
+      echo "Invalid option: -$OPTARG" >&2
+      usage
+      ;;
+  esac
+done
+
+# Default case if no flags are provided
+if [ "$FLAG_RECVD" = false ]; then
+    create_session
+    echo "No specific flag provided. Default 'main' window created/ensured."
+fi
+
+# Attach to the session
+tmux attach-session -t "$SESSION_NAME"
+
+
+
+

@@ -1,0 +1,4 @@
+--target=/Users/lewis/.config
+--verbose=1
+.stowrc
+__pycache__

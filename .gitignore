@@ -1,0 +1,35 @@
+# Suckless build artifacts
+# =========================
+
+# Object files
+*.o
+
+# Generated headers
+suckless/**/config.h
+
+# Compiled binaries (FILES ONLY)
+suckless/*/dwm
+suckless/*/st
+suckless/*/dmenu
+suckless/*/dmenu/dmenu_run
+suckless/*/dmenu_path
+suckless/*/dwmblocks
+# Temporary / logs
+*.log
+*.tmp
+*.out
+
+# Patch leftovers
+*.orig
+*.rej
+
+# Editor / OS noise
+*~
+*.swp
+*.swo
+*.bak
+# Coverage / profiling
+*.gcda
+*.gcno
+*.gcov
+

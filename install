@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -e
+
+cd "$(dirname "$0")"
+
+git submodule update --init --recursive
+
+./dotbot/bin/dotbot -d . -c install.conf.yaml
+
+# Reload shell (optional but useful)
+if [ -n "$ZSH_VERSION" ]; then
+  echo "Reloading zsh..."
+  exec zsh
+else
+  echo "Installation complete. Restart your shell."
+fi
+
+echo "[Optional] Run system setup? (y/N)"
+read -r ans
+
+if [[ "$ans" =~ ^[Yy]$ ]]; then
+  ./scripts/build-suckless.sh
+  sudo systemctl enable --now sshd
+fi

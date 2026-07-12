@@ -1,0 +1,31 @@
+alias \
+\
+yz="yazi "  \
+rg="ranger "  \
+sy="sioyek " \
+v="nvim" \
+cdwm="nvim ${HOME}/suckless/dwm/config.def.h" \
+mdwm="cd ${HOME}/suckless/dwm; rm config.h; make clean;make;sudo make install;cd -" \
+cdb="nvim ${HOME}/dwm/dwmblocks/blocks.def.h" \
+zc="nvim ${ZDOTDIR}/.zshrc" \
+zp="nvim ${ZDOTDIR}/.zprofile" \
+yc="yazi ${XDG_CONFIG_HOME}/" \
+kt="tmux kill-server" \
+vt="v $XDG_CONFIG_HOME/tmux/tmux.conf" \
+al="v $XDG_CONFIG_HOME/shell/alias" \
+mv="mv -i" \
+rm="rm -Iv" \
+df="df -h" \
+k="killall" \
+freec="free -h | bat -l cpuinfo -p" \
+sensors="sensors | bat -l cpuinfo -p" \
+grep="grep --color=auto" \
+shell="exec $SHELL -l" \
+sc="scrcpy" \
+mux="tmuxinator" \
+eye="iris-floss " \
+setwide="autorandr -l uw" \
+tma="tmux attach " \
+pms="sudo pacman -Ss " \
+init="tmuxinator start init --detach"
+		

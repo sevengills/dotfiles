@@ -1,0 +1,4 @@
+set statusindicator true
+set statusline %m | %l
+set modeindicator true
+bind ;l tablast

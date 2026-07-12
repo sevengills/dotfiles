@@ -1,0 +1,28 @@
+/.tmux
+.stowrc
+/others/iris-flow
+__pycache__
+
+^Code/User/(?!settings.json\.json$).*
+
+RCS
+.+,v
+
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING

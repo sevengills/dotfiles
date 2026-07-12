@@ -1,0 +1,8 @@
+[Added Associations]
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=calibre-ebook-viewer.desktop;
+
+[Default Applications]
+application/pdf=org.pwmt.zathura.desktop
+image/jpeg=nxiv.desktop
+application/xhtml+xml=firefox-developer-edition
+text/plain=nvim

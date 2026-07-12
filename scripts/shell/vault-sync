@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+BASE="$HOME/garden"
+VAULT="$garden/lyt"
+FILTER="$garden/obsidian-filter.txt"
+
+rclone bisync \
+    $garden/lyt \
+    vault: \
+    --filter-from $garden/obsidian-filter.txt \
+    --create-empty-src-dirs \
+    --resilient \
+	--fast-list \
+    -P
+
+echo "[+] Vault sync complete"
