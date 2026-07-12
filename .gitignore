@@ -33,3 +33,4 @@ suckless/*/dwmblocks
 *.gcno
 *.gcov
 
+.DS_Store
