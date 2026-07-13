@@ -31,8 +31,9 @@
 		// "editor.background": "#000",
 		// "sideBar.foreground": "#fff",
 		// "editorGutter.background": "#000",
-		"editorIndentGuide.background1":"#232020",
-		"editorIndentGuide.activeBackground1": "#17313e",
+		// "editorIndentGuide.background1":"#232020",
+		// "editorIndentGuide.activeBackground1": "#17313e",
+		"editorIndentGuide.activeBackground1": "#1ea3e6",
     },
 
 	"workbench.startupEditor": "none",
@@ -144,5 +145,14 @@
 		"scminput": false
 	},
   "markdown.extension.toc.updateOnSave": false,
-  "notebook.lineNumbers": "on"
+  "notebook.lineNumbers": "on",
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
+  "workbench.colorTheme": "Dark Modern"
 }

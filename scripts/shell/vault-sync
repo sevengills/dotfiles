@@ -3,13 +3,12 @@
 set -euo pipefail
 
 BASE="$HOME/garden"
-VAULT="$garden/lyt"
-FILTER="$garden/obsidian-filter.txt"
+FILTER="$BASE/obsidian-filter.txt"
 
 rclone bisync \
-    $garden/lyt \
+    $BASE/lyt \
    vault: \
-    --filter-from $garden/obsidian-filter.txt \
+    --filter-from $FILTER \
     --create-empty-src-dirs \
     --resilient \
 	--fast-list \

@@ -17,6 +17,7 @@ set completion-fg "#8ec07c"
 set completion-highlight-bg "#add8e6"
 set inputbar-bg "#282828"
 set inputbar-fg "#8ec07c"
+set selection-notification false
 
 map u scroll half-up
 map d scroll half-down
