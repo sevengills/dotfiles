@@ -1,0 +1,20 @@
+export PATH=$PATH:~/bin
+export PATH=$PATH:~/.cargo/bin
+export PATH=$PATH:/usr/local/share/dotnet
+
+if [ -d /opt/homebrew/bin ]; then
+  export PATH=/opt/homebrew/bin:$PATH
+  export PATH=/opt/homebrew/sbin:$PATH
+elif [ -d /usr/local/bin ]; then
+  export PATH=/usr/local/bin:$PATH
+  export PATH=/usr/local/sbin:$PATH
+fi
+
+# if hash brew 2>/dev/null; then
+#   # use gnu versions
+#   export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+#   export PATH=/usr/local/opt/findutils/libexec/gnubin:$PATH
+ # Use correct M1 Apple Silicon pathing for GNU tools
+# export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+#  export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+# fi

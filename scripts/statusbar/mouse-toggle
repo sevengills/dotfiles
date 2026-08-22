@@ -1,0 +1,28 @@
+#!/bin/sh
+# Toggle + status for touchpad (libinput/xinput)
+# Shows icon only when touchpad is disabled
+
+ICON="󰍾"
+
+# find first touchpad device name
+device="$(xinput list | grep -iE 'touchpad|synaptics' | sed -n 's/.*↳ \(.*\)id=.*/\1/p' | head -n1)"
+
+[ -z "$device" ] && exit 0
+
+enabled="$(xinput list-props "$device" \
+  | awk -F': ' '/Device Enabled/ {print $2}')"
+
+# Handle click (toggle)
+if [ "$BLOCK_BUTTON" = "1" ]; then
+  if [ "$enabled" = "1" ]; then
+    xinput disable "$device"
+  else
+    xinput enable "$device"
+  fi
+  exit 0
+fi
+
+# Render status
+if [ "$enabled" = "0" ]; then
+  echo "$ICON"
+fi

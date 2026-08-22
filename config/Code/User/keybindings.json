@@ -1,0 +1,77 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "ctrl+shift+a",
+    "command": "editor.emmet.action.balanceOut"
+  },
+  {
+    "key": "shift+alt+d",
+    "command": "workbench.view.debug"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "-workbench.view.debug"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "editor.action.duplicateSelection"
+  },
+  {
+    "key": "ctrl+u ctrl+c",
+    "command": "editor.action.transformToUppercase"
+  },
+  {
+    "key": "ctrl+k ctrl+u",
+    "command": "editor.action.moveSelectionToPreviousFindMatch"
+  },
+  {
+    "key": "ctrl+alt+p",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus",
+    "args":{
+      "name":"pecho"
+    }
+  },
+  {
+  "key": "ctrl+alt+c",
+  "command": "editor.action.insertSnippet",
+  "when": "editorTextFocus",
+  "args": {
+    "name": "clog"
+  },
+},
+{
+	"key": "ctrl+k a",
+	"command": "workbench.action.toggleActivityBarVisibility"
+},
+{
+	"key": "shift+alt+down",
+	"command": "editor.action.copyLinesDownAction",
+	"when": "editorTextFocus && !editorReadonly"
+},
+{
+	"key": "ctrl+shift+alt+down",
+	"command": "-editor.action.copyLinesDownAction",
+	"when": "editorTextFocus && !editorReadonly"
+},
+{
+	"key": "shift+alt+up",
+	"command": "editor.action.copyLinesUpAction",
+	"when": "editorTextFocus && !editorReadonly"
+},
+{
+	"key": "ctrl+shift+alt+up",
+	"command": "-editor.action.copyLinesUpAction",
+	"when": "editorTextFocus && !editorReadonly"
+},
+{
+  "key": "ctrl+k shift+b",
+  "command": "workbench.action.toggleMaximizedPanel",
+  "when": "panelAlignment == 'center' || panelPosition != 'bottom' && panelPosition != 'top'"
+},
+{
+  "key": "ctrl+k b",
+  "command": "workbench.action.maximizeAuxiliaryBar",
+  "when": "!auxiliaryBarMaximized"
+}
+]

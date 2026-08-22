@@ -1,0 +1,5 @@
+
+#!/bin/sh
+# Toggle default microphone mute (PipeWire)
+
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle

@@ -1,0 +1,79 @@
+#!/bin/sh
+
+# ---------------- CONFIG ----------------
+USE_AUTORANDR=0
+
+# ---------------- CLICK -----------------
+# ---------------- CLICK -----------------
+case "$BLOCK_BUTTON" in
+    1)
+        playerctl -p termusic play-pause
+        ;;
+    3)
+        META=$(playerctl -p termusic metadata --format '{{title}}|{{artist}}|{{album}}' 2>/dev/null)
+
+        TITLE_N=${META%%|*}
+        REST=${META#*|}
+        ARTIST=${REST%%|*}
+        ALBUM=${META##*|}
+
+        [ -z "$TITLE_N" ] && TITLE_N="No track"
+        [ -z "$ARTIST" ] && ARTIST="Unknown artist"
+        [ -z "$ALBUM" ] && ALBUM=""
+
+        notify-send -r 9999 -t 2000 "🎵 $TITLE_N" "👤 $ARTIST\n💿 $ALBUM"
+        ;;
+esac
+# ---------------- PLAYER DATA ----------
+DATA=$(playerctl -p termusic metadata --format '{{status}}|{{title}}' 2>/dev/null)
+
+STATUS=${DATA%%|*}
+TITLE=${DATA#*|}
+
+[ -z "$STATUS" ] && STATUS="Stopped"
+[ -z "$TITLE" ] && TITLE=""
+
+# ---------------- ICONS ----------------
+case "$STATUS" in
+    Playing) ICON="🎵" ;;
+    Paused)  ICON="⏸" ;;
+    *)       ICON="" ;;
+esac
+
+# ---------------- MODE DETECTION -------
+FULL_MODE=0
+
+if [ "$USE_AUTORANDR" = "1" ]; then
+    CURRENT_PROFILE=$(autorandr --current 2>/dev/null)
+
+    case "$CURRENT_PROFILE" in
+        uw|dock|ultrawide)
+            FULL_MODE=1
+            ;;
+    esac
+fi
+
+# fallback → resolution-based detection
+if [ "$FULL_MODE" = "0" ]; then
+    if command -v xrandr >/dev/null 2>&1; then
+        WIDTH=$(xrandr | awk '/ primary / {print $4}' | cut -d'x' -f1)
+
+        # safety: ensure WIDTH is numeric
+        case "$WIDTH" in
+            ''|*[!0-9]*) WIDTH=0 ;;
+        esac
+
+        [ "$WIDTH" -ge 1920 ] && FULL_MODE=1
+    else
+        # xrandr not available → safe fallback
+        FULL_MODE=0
+    fi
+fi
+
+# ---------------- OUTPUT ----------------
+if [ "$FULL_MODE" = "1" ] && [ -n "$TITLE" ]; then
+    TITLE=$(printf "%.40s" "$TITLE")
+    echo "$ICON $TITLE"
+else
+    echo "$ICON"
+fi

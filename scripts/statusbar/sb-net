@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Detect active wired interface
+# lists only interfaces with IPv4 addresses
+wired=$(ip -o -4 addr show | awk '$2 ~ /^en/ {print $2}' | head -n1)
+# Wired interfaces usually start with en
+# Wi-Fi interfaces usually start with wl / wlan
+# Detect active wifi interface
+wifi=$(ip -o -4 addr show | awk '$2 ~ /^(wl|wlan)/ {print $2}' | head -n1)
+
+if [ -n "$wired" ]; then
+    echo "󰈀"     # Ethernet icon
+elif [ -n "$wifi" ]; then
+    echo "󰤨"     # Wi-Fi icon
+else
+    echo "󰤮"      # Disconnected
+fi
+
+case "$BLOCK_BUTTON" in
+  1) notify-send "Wi-Fi" "$(iwgetid -r)" ;;
+esac

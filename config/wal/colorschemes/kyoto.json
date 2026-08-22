@@ -1,0 +1,29 @@
+{
+    "checksum": "be6f13f21ca34b9d2a3274905b2783ac",
+    "wallpaper": "/home/raj/Pictures/wall/yellow_kyoto.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#000000",
+        "foreground": "#c7c5c3",
+        "cursor": "#c7c5c3"
+    },
+    "colors": {
+        "color0": "#000000",
+        "color1": "#D8A76C",
+        "color2": "#EDB677",
+        "color3": "#DEC26F",
+        "color4": "#FCC67C",
+        "color5": "#44B281",
+        "color6": "#E3B482",
+        "color7": "#c7c5c3",
+        "color8": "#73665e",
+        "color9": "#D8A76C",
+        "color10": "#EDB677",
+        "color11": "#DEC26F",
+        "color12": "#FCC67C",
+        "color13": "#44B281",
+        "color14": "#E3B482",
+        "color15": "#c7c5c3"
+    }
+}

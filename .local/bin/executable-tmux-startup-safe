@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REAL_TMUX="/usr/bin/tmux"
+
+# Only intercept EXACT send-keys calls
+if [[ "${1-}" == "send-keys" ]]; then
+  shift
+
+  target=""
+  command_parts=()
+
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t)
+        target="$2"
+        shift 2
+        ;;
+      C-m)
+        shift
+        ;;
+      *)
+        command_parts+=("$1")
+        shift
+        ;;
+    esac
+  done
+
+  if [[ -n "$target" && "${#command_parts[@]}" -gt 0 ]]; then
+    command_string="${command_parts[*]}"
+    shell_bin="${SHELL:-/bin/zsh}"
+
+    exec "$REAL_TMUX" respawn-pane -k -t "$target" \
+      "$shell_bin" -ic "$command_string"
+  else
+    # ⚠️ IMPORTANT: fallback must reconstruct original call
+    exec "$REAL_TMUX" send-keys "$@"
+  fi
+fi
+
+# EVERYTHING else passes through untouched
+exec "$REAL_TMUX" "$@"

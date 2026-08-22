@@ -1,0 +1,13 @@
+CONFIG_DIR="$HOME/.config/zathura"
+TARGET="$CONFIG_DIR/zathurarc"
+
+# List themes, select via fzf
+theme=$(ls "$CONFIG_DIR"/zathura-* 2>/dev/null | xargs -n1 basename | fzf --prompt="Choose Zathura theme: ")
+
+if [[ -n "$theme" ]]; then
+  cp "$CONFIG_DIR/$theme" "$TARGET"
+  echo "Switched to theme: $theme"
+  
+  # macOS native replacement for xdotool windowkill
+  pkill -x zathura 2>/dev/null || echo "Zathura was not running."
+fi

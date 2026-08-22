@@ -1,0 +1,20 @@
+name: init
+project_root: /home/raj/phone/kindlary
+# tmux_command: /home/raj/.local/bin/executable-tmux-startup-safe
+startup_window: libri
+startup_pane: 1
+windows:
+  - libri:
+      layout: b85f,251x43,0,0[251x30,0,0,27,251x12,0,31,30]
+      panes:
+        - rg
+        - ''
+  - lx:
+      layout: 49e1,251x43,0,0[251x31,0,0,28,251x11,0,32,31]
+      panes:
+        - rg "$HOME"
+        - cd ~
+  - mpv:
+      layout: dc68,251x43,0,0,29
+      panes:
+        - play-with-mpv

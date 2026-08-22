@@ -1,0 +1,20 @@
+---
+name: AI
+project_root: "$HOME/k8s-ai"
+windows:
+- ruby:
+    layout: c423,78x18,0,0,6
+    panes:
+    - " "
+- zsh:
+    layout: c424,78x18,0,0,7
+    panes:
+    - cd $HOME
+    - cd $HOME
+- zsh:
+    layout: c425,78x18,0,0,8
+    panes:
+    - cd $HOME
+    - zathura $SHELF/ai/Design\ Multi-Agent\ AI\ Systems\ Using\ MCP\ and\ A2A\ \(Gigi\ Sayfan\)\ \(z-library.sk,\ 1lib.sk,\ z-lib.sk\).pdf
+
+

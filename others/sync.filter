@@ -1,0 +1,17 @@
+# System junk
+- **/.DS_Store
+- **/.Spotlight-V100/**
+- **/.Trashes/**
+- **/.fseventsd/**
+- /.git/**
+- /.trash/**
+
+# Ignore all Obsidian internals
+- /lyt/.obsidian/**
+
+# Keep only plugin enablement records
++ /lyt/.obsidian/community-plugins.json
++ /lyt/.obsidian/core-plugins.json
+
+# Everything else
++ **

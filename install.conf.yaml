@@ -1,0 +1,45 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+        # force: true
+
+- create:
+    - ~/.local/bin
+    - ~/.cache/wal
+    - ~/.local/bin/scripts
+    - ~/.cache/wal
+
+- shell:
+    - [git clone https://github.com/zdharma-continuum/zinit.git ~/.local/share/zinit/zinit.git || true, Install zinit]
+    - [wal -R || true, Apply wal theme]
+    - [scripts/link-scripts.sh]
+    - [scripts/build-suckless.sh]
+    
+    # - [make -C suckless/dwmblocks && sudo make -C suckless/dwmblocks install, Install dwmblocks]
+    # - [make -C suckless/dmenu && sudo make -C suckless/dmenu install, Install dmenu]
+    # - [make -C suckless/dwm && sudo make -C suckless/dwm install, Install dwm]
+    
+- link:
+    ~/.zshrc: .config/zsh/.zshrc
+    ~/.zprofile: .config/zsh/.zprofile
+    ~/.xinitrc: .config/x11/.xinitrc
+    ~/mimeapps.list: mimeapps.list
+    
+    ~/.config/zsh: .config/zsh
+    ~/.config/x11: .config/x11
+    ~/.config/nvim: .config/nvim
+    ~/.config/picom: .config/picom
+    ~/.config/zathura: .config/zathura
+    ~/.config/tmux: .config/tmux
+    ~/.config/wal: .config/wal
+    ~/.config/termusic: .config/termusic
+    ~/.config/ranger: .config/ranger
+    ~/.config/picom: .config/picom
+    ~/.config/mpv: .config/mpv
+
+    ~/.local/bin/scripts/screenshot: scripts/images-walls/screenshot
+    ~/.local/bin/scripts/repos-dmenu.sh: scripts/dmenu/repos-dmenu.sh
+    ~/.local/bin/scripts/tmux-dmenu.sh: scripts/dmenu/tmux-dmenu.sh
+
+

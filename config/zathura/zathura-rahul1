@@ -1,0 +1,43 @@
+set sandbox none
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+
+set default-bg "#555555"
+
+set recolor-keephue
+set recolor-lightcolor "#282828"
+set recolor-darkcolor "#ebdbb2"
+
+set recolor true
+set scroll-step 1
+set scroll-hstep 1
+# Maps Control + Command + F to toggle fullscreen mode
+map <C-f> toggle_fullscreen
+map [fullscreen] <C-f> toggle_fullscreen
+map [fullscreen] j scroll down 300
+map [fullscreen] k scroll up 300
+map [fullscreen] h scroll left 300
+map [fullscreen] l scroll right 300
+map [fullscreen] <C-f> toggle_fullscreen
+map [fullscreen] , zoom out
+map [fullscreen] . zoom in
+
+set statusbar-bg "#282828"
+set statusbar-fg "#8ec07c"
+set completion-bg "#282828"
+set completion-fg "#8ec07c"
+set completion-highlight-bg "#add8e6"
+set inputbar-bg "#282828"
+set inputbar-fg "#8ec07c"
+set selection-notification false
+
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
