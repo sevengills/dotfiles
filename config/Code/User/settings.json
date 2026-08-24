@@ -154,5 +154,6 @@
   ],
   "workbench.colorTheme": "Dark Modern",
   "chat.disableAIFeatures": true,
-  "editor.multiCursorModifier": "ctrlCmd"
+  "editor.multiCursorModifier": "ctrlCmd",
+  "workbench.editor.empty.hint": "hidden"
 }

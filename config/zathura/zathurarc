@@ -1,3 +1,12 @@
+map C toggle_continuous
+
+# Press 'a' to force width alignment and center the view instantly
+map a adjust_window width
+
+# Press 's' to fit the full page cleanly inside the window boundaries
+map s adjust_window best-fit
+
+
 set sandbox none
 set statusbar-h-padding 0
 set statusbar-v-padding 0
@@ -32,6 +41,7 @@ set inputbar-bg "#282828"
 set inputbar-fg "#8ec07c"
 set selection-notification false
 
+
 map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode
@@ -40,3 +50,5 @@ map R rotate
 map K zoom in
 map J zoom out
 map i recolor
+map C toggle_continuous
+

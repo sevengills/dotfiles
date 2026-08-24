@@ -250,3 +250,7 @@ run = [ 'layout floating' ]
 if.app-id = 'org.python.python'
 run = [ 'layout floating' ]
 
+[[on-window-detected]]
+if.app-id = 'com.calibre-ebook.ebook-viewer'
+run = [ 'layout floating' ]
+
