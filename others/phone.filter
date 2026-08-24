@@ -1,0 +1,15 @@
+# System junk
+- **/.DS_Store
+- **/.Spotlight-V100/**
+- **/.Trashes/**
+- **/.fseventsd/**
+- /.git/**
+- /.trash/**
+
+# Ignore all Obsidian internals
+- /lyt/.obsidian/**
+- /lyt/.obsidian/appearance/**
+- /lyt/.obsidian/*.json
+
+# Everything else
++ **

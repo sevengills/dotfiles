@@ -6,6 +6,8 @@
 - /.git/**
 - /.trash/**
 
+# Keep the entire plugins folder and all files inside it
++ /lyt/.obsidian/plugins/**
 
 # Keep only plugin enablement records
 + /lyt/.obsidian/community-plugins.json
